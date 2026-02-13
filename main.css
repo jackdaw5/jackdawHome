@@ -1,0 +1,155 @@
+/* ========================================
+   Basic CSS Reset
+   ======================================== */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set core body defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Remove list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Remove default anchor styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Inherit fonts for form elements */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove button styling */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Improve table defaults */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+/* my own css to be edited ofc*/
+body {
+  background-image: url('canvas2.jpg');
+  background-repeat: repeat-x;
+  
+  min-height:100vh;
+}
+
+.container {
+    
+    margin: 5vh;
+    display: grid;
+  
+    grid-gap: 10px;
+    grid-template:
+        "header header header"
+        "sidebar1 main sidebar2"
+        "sidebar1 footer footer"
+        / 1fr 2fr 1fr;
+    flex: 1;  /* This makes container take available space */
+}
+
+header { 
+    grid-area: header; 
+    border: 3px solid rgb(138, 222, 222);
+    background-color: rgb(109, 170, 170);
+    border-color: rgb(138, 222, 222);
+    padding: 3vh;
+    min-height: 20vh;
+}
+.sidebar1 { 
+    background-color: rgb(35, 84, 84);
+    grid-area: sidebar1;
+    border: 3px  solid rgb(138, 222, 222);
+    border-color: rgb(138, 222, 222);
+    padding: 3vh;
+    min-height: 100%; 
+}
+.sidebar2 { 
+    background-color: rgb(34, 92, 92);
+    grid-area: sidebar2;
+    border: 3px solid rgb(46, 53, 53);
+    border-color: rgb(138, 222, 222);
+    padding: 3vh; 
+    min-height: 100%;
+}
+
+main { 
+    background-color: rgb(74, 198, 198);
+    grid-area: main;
+    border: 3px solid rgb(138, 222, 222);
+    border-color: rgb(138, 222, 222);
+    padding: 3vh;
+    min-height: 50vh;
+}
+footer { 
+    /*position: fixed;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;*/
+    background-color: rgb(77, 126, 126);
+    grid-area: footer;
+    border: 3px solid rgb(138, 222, 222);
+    border-color: rgb(138, 222, 222);
+    padding: 3vh;
+    min-height: 20vh; 
+}
