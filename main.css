@@ -71,7 +71,6 @@ button {
 
 /* Avoid text overflows */
 p,
-h2,
 h3,
 h4,
 h5,
@@ -79,12 +78,21 @@ h6,
 b {
   overflow-wrap: break-word;
   color: rgb(62, 219, 201);
+ 
+}
+
+h2{
+  text-align: center;
+  color: rgb(16, 214, 221);
+  font-size: 1.5em;
+  font-family: lucida Arial, Helvetica, sans-serif;
 }
 
 h1,
 p1{
   color: rgb(35, 53, 51);
   margin-left: 1em; 
+  font-weight: bold;
   
 }
 /* Improve table defaults */
@@ -147,6 +155,26 @@ header {
     min-height: 0; /* Important for flex/grid children */
 }
 
+img{
+  width: 18rem;
+  align-self: center;
+  padding: 1em;
+}
+
+.ascii-art{         /* Keep proper line spacing */
+  color: rgb(124, 235, 235);   /* Match your theme color */
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 4.5vh;
+  border-radius: 5px;
+  align-items: center;
+
+}
+p{
+  font-size: 2vh;
+  align-items: center;
+
+}
+
 .sidebar2 { 
     background-color: rgb(34, 92, 92);
     grid-area: sidebar2;
@@ -163,52 +191,76 @@ main {
     border: 3px solid rgb(138, 222, 222);
     border-color: rgb(138, 222, 222);
     padding: 1.5vh;
-    
-    min-height: 0; /* Important for flex/grid children */
-    overflow-y: auto !important; /* Keep scrolling but allow visible overflow */
-    overflow-x: hidden;
     min-height: 0;
+    overflow-y: auto !important;
+    overflow-x: hidden;
+    position: relative;
+    z-index: 1;
 }
-
-
 
 footer { 
     background-color: rgb(77, 126, 126);
     grid-area: footer;
     border: 3px solid rgb(138, 222, 222);
-    border-color: rgb(138, 222, 222);
-    padding: 1vh 1.5vh;
-    overflow: hidden; /* Hide overflow */
-    display: flex;
+  
+    overflow: auto;
+    display: grid;
     align-items: center;
+    justify-items: center;
+    gap: 2px;
     min-height: 0;
+    height: 100%;
 }
 
-footer img {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0 5px;
-    width: auto;
+.footer-img {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2px;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-img img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+    padding: 0 !important;
 }
 
 /* Make sure the TOC doesn't overflow - NO SCROLLBAR */
 #toc {
-    overflow-y: visible; /* Changed from 'auto' to 'visible' */
+    overflow-y: visible;
     overflow-x: hidden;
-    max-height: none; /* Remove max-height restriction */
+    max-height: none;
     margin-top: 10px;
     word-break: break-word;
 }
-
 /* ========================================
-   Alternative: Links appear as overlay on hover
+   Folder Grid Layout - RESPONSIVE COLUMNS
    ======================================== */
 
 .folder-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    padding: 15px 0;
+    grid-template-columns: repeat(2, 1fr); /* Default: 2 columns */
+    gap: 1em;
+    padding: 0.2em 0.7em;
+}
+
+/* 3 columns on larger screens (full screen) */
+@media (min-width: 1200px) {
+    .folder-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on big screens */
+    }
+}
+
+/* Optional: 4 columns on very large screens */
+@media (min-width: 1600px) {
+    .folder-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns on huge screens */
+    }
 }
 
 .folder-item {
@@ -216,68 +268,107 @@ footer img {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.2);
-    border: 2px solid rgb(138, 222, 222);
-    border-radius: 10px;
     padding: 15px 10px;
-    transition: all 0.3s ease;
     position: relative;
-    height: 140px; /* Fixed height for consistency */
-    overflow: visible; /* Allow content to overflow */
+    min-height: 2em;
 }
 
 .folder-image {
-    width: 60px;
-    height: auto;
+    width: 15vh;
+    height: 14vh;
     cursor: pointer;
     transition: transform 0.2s ease;
-    margin-bottom: 10px;
-    z-index: 2;
+    margin: 5px 0;
+    position: relative;
+    z-index: 10;
 }
 
 .folder-image:hover {
-    transform: scale(1.15);
+    transform: scale(1.5);
 }
 
 .folder-item h3 {
     color: rgb(124, 235, 235) !important;
-    margin: 5px 0;
-    font-size: 1rem;
-    z-index: 2;
+    margin: 0 0 5px 0;
+    font-size: 2.5vh;
+    order: -1;
 }
 
+/* Links container */
 .folder-links {
     display: none;
     flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    width: 100%;
+    width: 12em;
+    max-width: 90vw;
+    max-height: 40vh;
     padding: 10px;
-    background-color: rgba(6, 44, 44, 0.98);
+    background-color: rgb(6, 44, 44);
     border: 2px solid rgb(138, 222, 222);
     border-radius: 8px;
-    z-index: 1000; /* Very high z-index */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-    margin-top: 5px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+    z-index: 10000;
+    
+    /* Scrollbar settings */
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+    /* Position fixed - JavaScript handles exact placement */
+    position: fixed;
+    
+    /* Scrollbar styling */
+    scrollbar-width: thin;
+    scrollbar-color: rgb(138, 222, 222) rgb(6, 44, 44);
 }
 
-/* Show links on hover */
-.folder-item:hover .folder-links {
-    display: flex;
+/* Webkit scrollbar styling */
+.folder-links::-webkit-scrollbar {
+    width: 8px;
 }
 
+.folder-links::-webkit-scrollbar-track {
+    background: rgb(6, 44, 44);
+    border-radius: 4px;
+}
 
+.folder-links::-webkit-scrollbar-thumb {
+    background: rgb(138, 222, 222);
+    border-radius: 4px;
+}
+
+.folder-links::-webkit-scrollbar-thumb:hover {
+    background: rgb(85, 182, 197);
+}
+
+/* Arrow indicator */
+.folder-links::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid rgb(138, 222, 222);
+    z-index: 10001;
+}
+
+/* Link styles */
 .folder-links a {
     color: rgb(85, 182, 197);
     text-decoration: underline;
-    padding: 8px 5px;
-    margin: 2px 0;
-    border-bottom: 1px solid rgba(138, 222, 222, 0.2);
+    padding: 0.5em 0.8em;
+    margin: 0.2vh 0;
+    background-color: rgb(6, 44, 44);
+    border-bottom: 1px solid rgb(138, 222, 222);
     transition: background-color 0.2s ease;
     text-align: left;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 4px;
+    word-break: break-word;
+    white-space: normal;
+    flex-shrink: 0;
 }
 
 .folder-links a:last-child {
@@ -285,6 +376,6 @@ footer img {
 }
 
 .folder-links a:hover {
-    background-color: rgba(138, 222, 222, 0.2);
+    background-color: rgb(10, 70, 70);
     color: rgb(124, 235, 235);
 }
