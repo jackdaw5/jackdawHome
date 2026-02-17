@@ -7,7 +7,7 @@ function initTableOfContents() {
     }
     
     // Get all h3 headings and all links
-    const headings = document.querySelectorAll("h3");
+    const headings = document.querySelectorAll(".folder-item h3");
     const allLinks = document.querySelectorAll(".folder-links a");
     
     if (headings.length < 1 && allLinks.length < 1) {
@@ -39,7 +39,6 @@ function initTableOfContents() {
         output += "<h4>All Links:</h4><ul>";
         [...allLinks].forEach((link, index) => {
             const title = link.textContent;
-            const href = link.getAttribute('href');
             const linkId = "link-" + index + "-" + title
                 .toLowerCase()
                 .trim()
@@ -88,9 +87,3 @@ document.addEventListener('DOMContentLoaded', function() {
     initTableOfContents();
     initSmoothScroll();
 });
-
-// Also run after a short delay to catch any dynamically loaded content
-setTimeout(function() {
-    console.log("Running initialization again to catch any late content...");
-    initTableOfContents();
-}, 500);
