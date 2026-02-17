@@ -23,6 +23,7 @@ html:focus-within {
 html,
 body {
   height: 100%;
+  overflow: hidden; /* Prevents scrolling on the body */
 }
 
 body {
@@ -70,15 +71,22 @@ button {
 
 /* Avoid text overflows */
 p,
-h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+b {
   overflow-wrap: break-word;
+  color: rgb(62, 219, 201);
 }
 
+h1,
+p1{
+  color: rgb(35, 53, 51);
+  margin-left: 1em; 
+  
+}
 /* Improve table defaults */
 table {
   border-collapse: collapse;
@@ -90,66 +98,113 @@ table {
 body {
   background-image: url('canvas2.jpg');
   background-repeat: repeat-x;
-  
-  min-height:100vh;
+  background-size: cover;
+  height: 100vh; /* Use viewport height */
+  overflow: hidden; /* Prevent body scrolling */
+}
+
+a {
+  color: rgb(85, 182, 197);
+  text-decoration: underline;
 }
 
 .container {
-    
-    margin: 5vh;
+    margin: 2vh; /* Reduced margin to give more space */
     display: grid;
-  
-    grid-gap: 10px;
+    height: calc(100vh - 4vh); /* Full viewport height minus margins */
+    max-height: calc(100vh - 4vh);
+    grid-gap: 8px; /* Slightly reduced gap */
     grid-template:
-        "header header header"
-        "sidebar1 main sidebar2"
-        "sidebar1 footer footer"
-        / 1fr 2fr 1fr;
-    flex: 1;  /* This makes container take available space */
+        "header header header" 15vh /* Fixed header height */
+        "sidebar1 main sidebar2" 1fr /* Main content takes remaining space */
+        "sidebar1 footer footer" 12vh /* Fixed footer height */
+        / 1fr 3fr 1fr;
+    overflow: hidden; /* Prevent container scrolling */
 }
 
 header { 
+    background-image: url('banner2.jpg');
+    background-repeat: repeat-x;  /* This makes it repeat horizontally */
+    background-size: auto;         /* Keep original size for repeating */
+    background-position: center;
     grid-area: header; 
     border: 3px solid rgb(138, 222, 222);
-    background-color: rgb(109, 170, 170);
+    background-color: rgb(109, 170, 170);  /* This shows behind the image */
     border-color: rgb(138, 222, 222);
-    padding: 3vh;
-    min-height: 20vh;
+    padding: 1.5vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
 }
+
 .sidebar1 { 
     background-color: rgb(35, 84, 84);
     grid-area: sidebar1;
-    border: 3px  solid rgb(138, 222, 222);
+    border: 3px solid rgb(138, 222, 222);
     border-color: rgb(138, 222, 222);
-    padding: 3vh;
-    min-height: 100%; 
+    padding: 1.5vh;
+    overflow-y: auto; /* Allow scrolling ONLY within sidebar if needed */
+    min-height: 0; /* Important for flex/grid children */
 }
+
 .sidebar2 { 
     background-color: rgb(34, 92, 92);
     grid-area: sidebar2;
-    border: 3px solid rgb(46, 53, 53);
+    border: 3px solid rgb(138, 222, 222);
     border-color: rgb(138, 222, 222);
-    padding: 3vh; 
-    min-height: 100%;
+    padding: 1.5vh;
+    overflow-y: auto; /* Allow scrolling ONLY within sidebar if needed */
+    min-height: 0; /* Important for flex/grid children */
 }
 
 main { 
-    background-color: rgb(74, 198, 198);
+    background-color: rgba(6, 44, 44, 0.895);
     grid-area: main;
     border: 3px solid rgb(138, 222, 222);
     border-color: rgb(138, 222, 222);
-    padding: 3vh;
-    min-height: 50vh;
+    padding: 1.5vh;
+    overflow-y: auto; /* Allow scrolling ONLY within main if needed */
+    min-height: 0; /* Important for flex/grid children */
 }
+
 footer { 
-    /*position: fixed;
-    bottom: 10px;
-    left: 10px;
-    right: 10px;*/
     background-color: rgb(77, 126, 126);
     grid-area: footer;
     border: 3px solid rgb(138, 222, 222);
     border-color: rgb(138, 222, 222);
-    padding: 3vh;
-    min-height: 20vh; 
+    padding: 1vh 1.5vh;
+    overflow: hidden; /* Hide overflow */
+    display: flex;
+    align-items: center;
+    min-height: 0;
+}
+
+footer img {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px;
+    width: auto;
+}
+
+/* Make sure the TOC doesn't overflow - NO SCROLLBAR */
+#toc {
+    overflow-y: visible; /* Changed from 'auto' to 'visible' */
+    overflow-x: hidden;
+    max-height: none; /* Remove max-height restriction */
+    margin-top: 10px;
+    word-break: break-word;
+}
+
+/* If TOC still needs height constraint, use this instead:
+#toc {
+    overflow-y: visible;
+    max-height: none;
+    margin-top: 10px;
+}
+*/
+
+/* Style for links container to prevent overflow */
+.linkid {
+    overflow-y: auto;
+    height: calc(100% - 40px); /* Adjust based on your h2 height */
 }
