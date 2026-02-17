@@ -75,9 +75,6 @@ function initSmoothScroll() {
     });
 }
 
-// ============================================
-// FIXED: Folder hover positioning - ALWAYS BELOW WITH SCROLLBAR
-// ============================================
 
 let hideTimeout;
 
@@ -127,7 +124,6 @@ function initFolderHover() {
     });
 }
 
-// FIXED: Always positions links BELOW the image with scrollbar
 function positionLinks(image, links) {
     // Get image position
     const imageRect = image.getBoundingClientRect();
@@ -149,30 +145,21 @@ function positionLinks(image, links) {
     if (leftPos + menuWidth > viewportWidth - 10) {
         leftPos = viewportWidth - menuWidth - 10;
     }
-    
-    // ALWAYS position below the image
+
     let topPos = imageRect.bottom + 5;
-    
-    // Calculate how much space is available below
     const spaceBelow = viewportHeight - topPos - 10;
-    
-    // Reset any previous inline styles
     links.style.maxHeight = '';
-    
-    // If there's very little space below, make it small but still scrollable
+   
     if (spaceBelow < 100) {
-        links.style.maxHeight = '80px'; // Minimum usable height
+        links.style.maxHeight = '80px';
     } 
-    // If there's some space but not full 40vh
     else if (spaceBelow < 300) {
-        links.style.maxHeight = spaceBelow + 'px'; // Use exact available space
+        links.style.maxHeight = spaceBelow + 'px'; 
     }
-    // Plenty of space - use default
     else {
         links.style.maxHeight = '40vh'; // Default
     }
-    
-    // Apply position
+  
     links.style.position = 'fixed';
     links.style.top = topPos + 'px';
     links.style.left = leftPos + 'px';

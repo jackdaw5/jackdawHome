@@ -1,6 +1,5 @@
-/* ========================================
-   Basic CSS Reset
-   ======================================== */
+/* Basic CSS Reset*/
+  
 
 /* Box sizing rules */
 *,
@@ -8,42 +7,35 @@
 *::after {
   box-sizing: border-box;
 }
-
 /* Remove default margin */
 * {
   margin: 0;
   padding: 0;
 }
-
 /* Set core body defaults */
 html:focus-within {
   scroll-behavior: smooth;
 }
-
 html,
 body {
   height: 100%;
   overflow: hidden; /* Prevents scrolling on the body */
 }
-
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-
 /* Remove list styles */
 ul,
 ol {
   list-style: none;
 }
-
 /* Remove default anchor styles */
 a {
   text-decoration: none;
   color: inherit;
 }
-
 /* Make images easier to work with */
 img,
 picture,
@@ -53,7 +45,6 @@ svg {
   display: block;
   max-width: 100%;
 }
-
 /* Inherit fonts for form elements */
 input,
 button,
@@ -61,14 +52,12 @@ textarea,
 select {
   font: inherit;
 }
-
 /* Remove button styling */
 button {
   background: none;
   border: none;
   cursor: pointer;
 }
-
 /* Avoid text overflows */
 p,
 h3,
@@ -80,7 +69,7 @@ b {
   color: rgb(62, 219, 201);
  
 }
-
+/* rest of css*/
 h2{
   text-align: center;
   color: rgb(16, 214, 221);
@@ -95,20 +84,18 @@ p1{
   font-weight: bold;
   
 }
-/* Improve table defaults */
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-
-/* my own css to be edited ofc*/
 body {
   background-image: url('canvas2.jpg');
   background-repeat: repeat-x;
   background-size: cover;
-  height: 100vh; /* Use viewport height */
-  overflow: hidden; /* Prevent body scrolling */
+  height: 100vh; 
+  overflow: hidden; 
 }
 
 a {
@@ -117,42 +104,42 @@ a {
 }
 
 .container {
-    margin: 2vh; /* Reduced margin to give more space */
-    display: grid;
-    height: calc(100vh - 4vh); /* Full viewport height minus margins */
-    max-height: calc(100vh - 4vh);
-    grid-gap: 8px; /* Slightly reduced gap */
-    grid-template:
-        "header header header" 15vh /* Fixed header height */
-        "sidebar1 main sidebar2" 1fr /* Main content takes remaining space */
-        "sidebar1 footer footer" 12vh /* Fixed footer height */
-        / 1fr 3fr 1fr;
-    overflow: hidden; /* Prevent container scrolling */
+  margin: 2vh;
+  display: grid;
+  height: calc(100vh - 4vh);
+  max-height: calc(100vh - 4vh);
+  grid-gap: 8px;
+  grid-template:
+      "header header header" 15vh 
+      "sidebar1 main sidebar2" 1fr 
+      "sidebar1 footer footer" 12vh
+      / 1fr 3fr 1fr;
+  overflow: hidden;
 }
 
 header { 
-    background-image: url('banner2.jpg');
-    background-repeat: repeat-x;  /* This makes it repeat horizontally */
-    background-size: auto;         /* Keep original size for repeating */
-    background-position: center;
-    grid-area: header; 
-    border: 3px solid rgb(138, 222, 222);
-    background-color: rgb(109, 170, 170);  /* This shows behind the image */
-    border-color: rgb(138, 222, 222);
-    padding: 1.5vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
+  background-image: url('banner2.jpg');
+  background-repeat: repeat-x;  
+  background-size: auto;         
+  background-position: center;
+  grid-area: header; 
+  border: 3px solid rgb(138, 222, 222);
+  background-color: rgb(109, 170, 170);
+  border-color: rgb(138, 222, 222);
+  padding: 1.5vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
 .sidebar1 { 
-    background-color: rgb(35, 84, 84);
-    grid-area: sidebar1;
-    border: 3px solid rgb(138, 222, 222);
-    border-color: rgb(138, 222, 222);
-    padding: 1.5vh;
-    overflow-y: auto; /* Allow scrolling ONLY within sidebar if needed */
-    min-height: 0; /* Important for flex/grid children */
+  background-color: rgb(35, 84, 84);
+  grid-area: sidebar1;
+  border: 3px solid rgb(138, 222, 222);
+  border-color: rgb(138, 222, 222);
+  padding: 1.5vh;
+  overflow-y: auto; 
+  min-height: 0;
 }
 
 img{
@@ -161,8 +148,8 @@ img{
   padding: 1em;
 }
 
-.ascii-art{         /* Keep proper line spacing */
-  color: rgb(124, 235, 235);   /* Match your theme color */
+.ascii-art{       
+  color: rgb(124, 235, 235); 
   background-color: rgba(0, 0, 0, 0.2);
   padding: 4.5vh;
   border-radius: 5px;
@@ -174,73 +161,68 @@ p{
   align-items: center;
 
 }
-
 .sidebar2 { 
-    background-color: rgb(34, 92, 92);
-    grid-area: sidebar2;
-    border: 3px solid rgb(138, 222, 222);
-    border-color: rgb(138, 222, 222);
-    padding: 1.5vh;
-    overflow-y: auto; /* Allow scrolling ONLY within sidebar if needed */
-    min-height: 0; /* Important for flex/grid children */
+  background-color: rgb(34, 92, 92);
+  grid-area: sidebar2;
+  border: 3px solid rgb(138, 222, 222);
+  border-color: rgb(138, 222, 222);
+  padding: 1.5vh;
+  overflow-y: auto; 
+  min-height: 0;
 }
 
 main { 
-    background-color: rgba(6, 44, 44, 0.895);
-    grid-area: main;
-    border: 3px solid rgb(138, 222, 222);
-    border-color: rgb(138, 222, 222);
-    padding: 1.5vh;
-    min-height: 0;
-    overflow-y: auto !important;
-    overflow-x: hidden;
-    position: relative;
-    z-index: 1;
+  background-color: rgba(6, 44, 44, 0.895);
+  grid-area: main;
+  border: 3px solid rgb(138, 222, 222);
+  border-color: rgb(138, 222, 222);
+  padding: 1.5vh;
+  min-height: 0;
+  overflow-y: auto !important;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 footer { 
-    background-color: rgb(77, 126, 126);
-    grid-area: footer;
-    border: 3px solid rgb(138, 222, 222);
+  background-color: rgb(77, 126, 126);
+  grid-area: footer;
+  border: 3px solid rgb(138, 222, 222);
   
-    overflow: auto;
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    gap: 2px;
-    min-height: 0;
-    height: 100%;
+  overflow: auto;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  gap: 2px;
+  min-height: 0;
+  height: 100%;
 }
 
 .footer-img {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 2px;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .footer-img img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: contain;
-    padding: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+  padding: 0 !important;
 }
 
-/* Make sure the TOC doesn't overflow - NO SCROLLBAR */
 #toc {
-    overflow-y: visible;
-    overflow-x: hidden;
-    max-height: none;
-    margin-top: 10px;
-    word-break: break-word;
+  overflow-y: visible;
+  overflow-x: hidden;
+  max-height: none;
+  margin-top: 10px;
+  word-break: break-word;
 }
-/* ========================================
-   Folder Grid Layout - RESPONSIVE COLUMNS
-   ======================================== */
 
 .folder-grid {
     display: grid;
@@ -262,120 +244,116 @@ footer {
         grid-template-columns: repeat(4, 1fr); /* 4 columns on huge screens */
     }
 }
+/*to be updated  for better scaling on different devices*/
 
 .folder-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 15px 10px;
-    position: relative;
-    min-height: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 15px 10px;
+  position: relative;
+  min-height: 2em;
 }
 
 .folder-image {
-    width: 15vh;
-    height: 14vh;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-    margin: 5px 0;
-    position: relative;
-    z-index: 10;
+  width: 15vh;
+  height: 14vh;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  margin: 5px 0;
+  position: relative;
+  z-index: 10;
 }
 
 .folder-image:hover {
-    transform: scale(1.5);
+  transform: scale(1.5);
 }
 
 .folder-item h3 {
-    color: rgb(124, 235, 235) !important;
-    margin: 0 0 5px 0;
-    font-size: 2.5vh;
-    order: -1;
+  color: rgb(124, 235, 235) !important;
+  margin: 0 0 5px 0;
+  font-size: 2.5vh;
+  order: -1;
 }
 
-/* Links container */
+
 .folder-links {
-    display: none;
-    flex-direction: column;
-    width: 12em;
-    max-width: 90vw;
-    max-height: 40vh;
-    padding: 10px;
-    background-color: rgb(6, 44, 44);
-    border: 2px solid rgb(138, 222, 222);
-    border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
-    z-index: 10000;
+  display: none;
+  flex-direction: column;
+  width: 12em;
+  max-width: 90vw;
+  max-height: 40vh;
+  padding: 10px;
+  background-color: rgb(6, 44, 44);
+  border: 2px solid rgb(138, 222, 222);
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+  z-index: 10000;
     
-    /* Scrollbar settings */
-    overflow-y: auto;
-    overflow-x: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
     
-    /* Position fixed - JavaScript handles exact placement */
-    position: fixed;
+  position: fixed;
     
-    /* Scrollbar styling */
-    scrollbar-width: thin;
-    scrollbar-color: rgb(138, 222, 222) rgb(6, 44, 44);
+   
+  scrollbar-width: thin;
+  scrollbar-color: rgb(138, 222, 222) rgb(6, 44, 44);
 }
 
-/* Webkit scrollbar styling */
 .folder-links::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 }
 
 .folder-links::-webkit-scrollbar-track {
-    background: rgb(6, 44, 44);
-    border-radius: 4px;
+  background: rgb(6, 44, 44);
+  border-radius: 4px;
 }
 
 .folder-links::-webkit-scrollbar-thumb {
-    background: rgb(138, 222, 222);
-    border-radius: 4px;
+  background: rgb(138, 222, 222);
+  border-radius: 4px;
 }
 
 .folder-links::-webkit-scrollbar-thumb:hover {
-    background: rgb(85, 182, 197);
+  background: rgb(85, 182, 197);
 }
 
-/* Arrow indicator */
 .folder-links::before {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: 20px;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid rgb(138, 222, 222);
-    z-index: 10001;
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid rgb(138, 222, 222);
+  z-index: 10001;
 }
 
-/* Link styles */
 .folder-links a {
-    color: rgb(85, 182, 197);
-    text-decoration: underline;
-    padding: 0.5em 0.8em;
-    margin: 0.2vh 0;
-    background-color: rgb(6, 44, 44);
-    border-bottom: 1px solid rgb(138, 222, 222);
-    transition: background-color 0.2s ease;
-    text-align: left;
-    font-size: 0.95rem;
-    display: block;
-    width: 100%;
-    cursor: pointer;
-    border-radius: 4px;
-    word-break: break-word;
-    white-space: normal;
-    flex-shrink: 0;
+  color: rgb(85, 182, 197);
+  text-decoration: underline;
+  padding: 0.5em 0.8em;
+  margin: 0.2vh 0;
+  background-color: rgb(6, 44, 44);
+  border-bottom: 1px solid rgb(138, 222, 222);
+  transition: background-color 0.2s ease;
+  text-align: left;
+  font-size: 0.95rem;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 4px;
+  word-break: break-word;
+  white-space: normal;
+  flex-shrink: 0;
 }
 
 .folder-links a:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .folder-links a:hover {
-    background-color: rgb(10, 70, 70);
-    color: rgb(124, 235, 235);
+  background-color: rgb(10, 70, 70);
+  color: rgb(124, 235, 235);
 }
