@@ -202,9 +202,140 @@ footer img {
     margin-top: 10px;
 }
 */
+/* ========================================
+   Folder Hover Styles
+   ======================================== */
 
-/* Style for links container to prevent overflow */
-.linkid {
-    overflow-y: auto;
-    height: calc(100% - 40px); /* Adjust based on your h2 height */
+.folder-section {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.folder-hover {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    margin: 5px 0;
+}
+
+.folder-hover:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+.folder-links {
+    display: none;
+    flex-direction: column;
+    margin-left: 50px;
+    padding: 12px;
+    border-left: 3px solid rgb(138, 222, 222);
+    background-color: rgba(6, 44, 44, 0.7);
+    border-radius: 0 8px 8px 0;
+    transition: all 0.2s ease;
+}
+
+/* Show links when hovering on folder image OR when hovering on the links themselves */
+.folder-section:hover .folder-links {
+    display: flex;
+}
+
+/* Keep links visible when hovering over them */
+.folder-links:hover {
+    display: flex;
+}
+
+.folder-links a {
+    margin: 5px 0;
+    padding: 5px 10px;
+    color: rgb(85, 182, 197);
+    text-decoration: underline;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, padding-left 0.2s ease;
+}
+
+.folder-links a:hover {
+    background-color: rgba(138, 222, 222, 0.2);
+    padding-left: 15px;
+    color: rgb(124, 235, 235);
+}
+
+/* Change folder image on hover - using CSS content trick */
+.folder-hover:hover {
+    content: url('folder-open.png'); /* This will change the image on hover */
+}
+
+/* But content trick has limitations. Alternative: use background-image */
+/*
+.folder-hover {
+    width: 40px;
+    height: 40px;
+    background-image: url('folder-closed.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.folder-hover:hover {
+    background-image: url('folder-open.png');
+}
+*/
+
+/* ========================================
+   TOC Styles
+   ======================================== */
+
+#toc {
+    padding: 10px;
+    word-break: break-word;
+}
+
+#toc b {
+    color: rgb(124, 235, 235);
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+#toc h4 {
+    color: rgb(138, 222, 222);
+    margin: 15px 0 8px 0;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(138, 222, 222, 0.3);
+    padding-bottom: 3px;
+}
+
+#toc ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+    list-style-type: none;
+}
+
+#toc li {
+    margin: 8px 0;
+}
+
+#toc a {
+    color: rgb(85, 182, 197);
+    text-decoration: none;
+    display: inline-block;
+    padding: 3px 0;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+#toc a:hover {
+    color: rgb(124, 235, 235);
+    transform: translateX(5px);
+    text-decoration: underline;
+}
+
+/* Icons for TOC items */
+#toc a::before {
+    content: "📁 ";
+    margin-right: 5px;
+}
+
+#toc ul:last-of-type a::before {
+    content: "🔗 ";
+    margin-right: 5px;
 }

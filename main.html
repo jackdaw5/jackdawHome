@@ -4,59 +4,82 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Basic starter</title>
-
   <link rel="stylesheet" href="main.css">
-  
-
-  
 </head>
 <body>
     <div class="container">
         <header>
-           
             <h1>Welcome</h1>
             <p1>Link hub for everyday use</p1>
-            
         </header>
+        
         <aside class="sidebar1" aria-label="Primary sidebar">
-            
-
+            <!-- Empty for now -->
         </aside>
+        
         <aside class="sidebar2" aria-label="Secondary sidebar">
             <div id="toc"></div>
         </aside>
+        
         <main>
             <h2>Links hub</h2>
+            
+            <!-- Official study Section -->
             <h3>Official study</h3>
-            <div class="linkid">
-                <a href="https://ois2.ut.ee/"> ois2</a>
-                <a href="https://moodle.ut.ee">Moodle</a>
-                <a href="https://courses.cs.ut.ee/">Kursused</a>
-                <h3>Entertament</h3>
-                <a href="URL">Clickable Text or Content</a>
-                <a href="URL">Clickable Text or Content</a>
-                <a href="URL">Clickable Text or Content</a>
-                <h3>Social</h3>
-                <a href="https://slack.com/signin#/signin">Slack</a>
-                <a href="https://discord.com">Discord</a>
-                <a href="https://www.facebook.com/">Facebook</a>
-                <a href="URL">Zulip add link</a>
-                <h3>Random</h3>
-                <a href="URL">Clickable Text or Content</a>
-                <a href="URL">Clickable Text or Content</a>
-                <a href="URL">Clickable Text or Content</a>
+            <div class="folder-section">
+                <img src="folder-closed.png" alt="Official study folder" class="folder-hover" data-folder="official">
+                <div class="folder-links" id="official-links">
+                    <a href="https://ois2.ut.ee/">ois2</a>
+                    <a href="https://moodle.ut.ee">Moodle</a>
+                    <a href="https://courses.cs.ut.ee/">Kursused</a>
+                </div>
+            </div>
+            
+            <!-- Entertainment Section -->
+            <h3>Entertament</h3>
+            <div class="folder-section">
+                <img src="folder-closed.png" alt="Entertainment folder" class="folder-hover" data-folder="entertainment">
+                <div class="folder-links" id="entertainment-links">
+                    <a href="URL">Clickable Text or Content</a>
+                    <a href="URL">Clickable Text or Content</a>
+                    <a href="URL">Clickable Text or Content</a>
+                </div>
+            </div>
+            
+            <!-- Social Section -->
+            <h3>Social</h3>
+            <div class="folder-section">
+                <img src="folder-closed.png" alt="Social folder" class="folder-hover" data-folder="social">
+                <div class="folder-links" id="social-links">
+                    <a href="https://slack.com/signin#/signin">Slack</a>
+                    <a href="https://discord.com">Discord</a>
+                    <a href="https://www.facebook.com/">Facebook</a>
+                    <a href="URL">Zulip add link</a>
+                </div>
+            </div>
+            
+            <!-- Random Section -->
+            <h3>Random</h3>
+            <div class="folder-section">
+                <img src="folder-closed.png" alt="Random folder" class="folder-hover" data-folder="random">
+                <div class="folder-links" id="random-links">
+                    <a href="URL">Clickable Text or Content</a>
+                    <a href="URL">Clickable Text or Content</a>
+                    <a href="URL">Clickable Text or Content</a>
+                </div>
             </div>
         </main>
+        
         <footer>
-            <div class="footer img">
-                <img src="blinkiesCafe-5R.gif">
-                
-                <img src="blinkiesCafe-7m.gif">
-                <img src="blinkiesCafe-OM.gif">
-                <img src="blinkiesCafe-qO.gif">
-                <img src="blinkiesCafe-TA.gif">
+            <div class="footer-img">
+                <a href="#"><img src="blinkiesCafe-5R.gif" alt="Blinkie 1"></a>
+                <a href="#"><img src="blinkiesCafe-7m.gif" alt="Blinkie 2"></a>
+                <a href="#"><img src="blinkiesCafe-OM.gif" alt="Blinkie 3"></a>
+                <a href="#"><img src="blinkiesCafe-qO.gif" alt="Blinkie 4"></a>
+                <a href="#"><img src="blinkiesCafe-TA.gif" alt="Blinkie 5"></a>
             </div>
         </footer>
+        
         <script src="index.js"></script>
     </div>
 </body>
