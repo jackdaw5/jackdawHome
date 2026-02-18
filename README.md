@@ -7,4 +7,6 @@ NB! Only for pc use
 - Add more links
 - Automate link addition/deletion
 - Add a virtual Tamagotchi pet
-- Bionic reader
+- Bionic reader- add more links
+- automatisation for links addition/delition
+- add an virtal tamagochi pet
